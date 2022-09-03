@@ -699,11 +699,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 64dbfb88-13f7-4efd-98f7-da43de49c383
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: CtrlAltJam
+  organizationId: zeke-lionhart
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
