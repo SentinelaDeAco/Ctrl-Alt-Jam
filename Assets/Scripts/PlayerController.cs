@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        HandleAttack();
     }
 
     private void HandleMovement()
@@ -37,5 +38,13 @@ public class PlayerController : MonoBehaviour
         if (counter > 50)
             speed = 10;
         else counter++;
+    }
+
+    private void HandleAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Actions.OnAtaque();
+        }
     }
 }

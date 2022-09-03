@@ -8,4 +8,5 @@ public static class Actions
     //public static Action<PlayerController> OnPlayerJoin;
     //public static Action OnPlayerRespawn;
     //public static Action<bool, PlayerController> OnButtonPress;
+    public static Action OnAtaque;
 }
