@@ -9,12 +9,12 @@ public class BalaControle : MonoBehaviour
 
     void Update()
     {
-       
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Boss")
+        if (other.gameObject.tag == "Boss")
         {
             Object.Destroy(this.gameObject);
         }

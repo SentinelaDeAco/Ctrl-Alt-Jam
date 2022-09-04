@@ -6,6 +6,7 @@ public class SpawBullet : MonoBehaviour
 {
     [SerializeField] private GameObject projetil;
     [SerializeField] private Transform cria_bala_tranform;
+    [SerializeField] private float velocidadeProjetil = 300f;
 
     private void OnEnable()
     {
@@ -21,7 +22,7 @@ public class SpawBullet : MonoBehaviour
     {
         GameObject projectileInstace;
         projectileInstace = Instantiate(projetil, cria_bala_tranform.position, cria_bala_tranform.rotation);
-        projectileInstace.GetComponent<Rigidbody>().AddForce(projectileInstace.transform.forward * 100f);
+        projectileInstace.GetComponent<Rigidbody>().AddForce(projectileInstace.transform.forward * velocidadeProjetil);
 
     }
 
