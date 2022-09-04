@@ -19,8 +19,10 @@ public class SpawBullet : MonoBehaviour
 
     void Spawner()
     {
-        Instantiate(projetil, cria_bala_tranform.position, cria_bala_tranform.rotation);
-        
+        GameObject projectileInstace;
+        projectileInstace = Instantiate(projetil, cria_bala_tranform.position, cria_bala_tranform.rotation);
+        projectileInstace.GetComponent<Rigidbody>().AddForce(projectileInstace.transform.forward * 100f);
+
     }
 
 }

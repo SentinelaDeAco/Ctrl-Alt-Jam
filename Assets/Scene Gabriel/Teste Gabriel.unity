@@ -412,37 +412,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0d7ddf033cffa4a873901b0ace67d5, type: 3}
---- !u!1 &446339665
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 446339666}
-  m_Layer: 0
-  m_Name: Spaw_Bullet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &446339666
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446339665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 1.289, z: -0.009}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 464536103}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464536102
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1.082416, y: 1.082416, z: 1.082416}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 446339666}
+  - {fileID: 2055421718}
   m_Father: {fileID: 1055414121}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -62.458, y: 104.276, z: 49.174}
@@ -541,7 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projetil: {fileID: 6635635098766117363, guid: a84bb46c61442254da671dfb9946cff5, type: 3}
-  cria_bala_tranform: {fileID: 446339666}
+  cria_bala_tranform: {fileID: 2055421718}
 --- !u!1 &502417001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2034,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958153573}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2055421717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055421718}
+  m_Layer: 0
+  m_Name: Spaw_Bullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055421718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055421717}
+  m_LocalRotation: {x: 0.008469908, y: -0.7462836, z: -0.5905729, w: 0.30694094}
+  m_LocalPosition: {x: -0.019482126, y: 1.2789384, z: -0.0005599141}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464536103}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6635635099777718514
 PrefabInstance:
   m_ObjectHideFlags: 0
