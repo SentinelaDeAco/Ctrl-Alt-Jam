@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 79b7cdfdbe8a91540a5179dbfb72a635, type: 2}
     - target: {fileID: -8679921383154817045, guid: 6c0d7ddf033cffa4a873901b0ace67d5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c0d7ddf033cffa4a873901b0ace67d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -470,13 +470,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464536102}
   m_LocalRotation: {x: -0.008469908, y: 0.7462836, z: 0.5905729, w: 0.30694094}
-  m_LocalPosition: {x: 0.477, y: -0.03357649, z: 0.059}
+  m_LocalPosition: {x: 0.477, y: 0.5284235, z: 0.059}
   m_LocalScale: {x: 1.082416, y: 1.082416, z: 1.082416}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 446339666}
-  m_Father: {fileID: 624772924}
-  m_RootOrder: 0
+  m_Father: {fileID: 1055414121}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -62.458, y: 104.276, z: 49.174}
 --- !u!23 &464536104
 MeshRenderer:
@@ -833,6 +833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 624772919}
   speed: 10
+  mainCamera: {fileID: 963194227}
+  characterModel: {fileID: 1055414119}
 --- !u!65 &624772921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -908,7 +910,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 464536103}
   - {fileID: 1055414121}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1472,20 +1473,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c0d7ddf033cffa4a873901b0ace67d5, type: 3}
   m_PrefabInstance: {fileID: 442221473}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1055414120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055414119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751e4044363cb804cab7860dd8b66481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 624772919}
-  speed: 10
 --- !u!4 &1055414121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6c0d7ddf033cffa4a873901b0ace67d5, type: 3}

@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = default;
     private int counter = 0;
     private bool canDash = true;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject characterModel;
+
+
 
     void Update()
     {
         HandleMovement();
         HandleAttack();
+        OlharParaMouse();
     }
 
     private void HandleMovement()
@@ -45,6 +50,25 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Actions.OnAtaque();
+        }
+    }
+
+
+    
+    private void OlharParaMouse()
+    {
+        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        //faz um plano infinito.
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        if (groundPlane.Raycast(cameraRay, out rayLength))
+        {
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            //desenha linha da camera ate o chao onde o mouse aponta.
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.red);
+
+            characterModel.transform.LookAt(new Vector3(pointToLook.x,characterModel.transform.position.y, pointToLook.z));
         }
     }
 }
