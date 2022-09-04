@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (mainCamera == null)
+            return;
+
         HandleMovement();
         HandleAttack();
         OlharParaMouse();
