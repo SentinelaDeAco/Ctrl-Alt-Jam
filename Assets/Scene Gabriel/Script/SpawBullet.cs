@@ -18,7 +18,7 @@ public class SpawBullet : MonoBehaviour
         Actions.OnAtaque -= Spawner;
     }
 
-    void Spawner()
+    void Spawner(float damage)
     {
         GameObject projectileInstace;
         projectileInstace = Instantiate(projetil, cria_bala_tranform.position, cria_bala_tranform.rotation);

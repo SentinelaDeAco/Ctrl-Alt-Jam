@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject characterModel;
+    [SerializeField] private float damage = 0.1f;
 
 
 
@@ -49,7 +50,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Actions.OnAtaque();
+            Actions.OnAtaque(damage);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Actions.StopAtaque();
         }
     }
 
