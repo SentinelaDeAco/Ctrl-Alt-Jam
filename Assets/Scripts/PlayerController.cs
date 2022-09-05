@@ -7,21 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController controller = default;
     [SerializeField] private float speed = default;
     private int counter = 0;
-    private bool canDash = true;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject characterModel;
     [SerializeField] private float damage = 0.1f;
+    [SerializeField] private int maxModsTEST = 1;
+    private int currentMod = 0; //0 = Normal; 1 = Flamethrower; 2 = Laser; 3 = Rune
 
 
 
     void Update()
     {
-        if (mainCamera == null)
-            return;
-
         HandleMovement();
         HandleAttack();
         OlharParaMouse();
+        SwitchMod();
     }
 
     private void HandleMovement()
@@ -30,7 +29,7 @@ public class PlayerController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
 
-        if (canDash) HandleDash();
+        //HandleDash();
 
         controller.Move(move * speed * Time.deltaTime);
     }
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
         {
             speed = 25;
             counter = 0;
-            //canDash = false;
         }
 
         if (counter > 50)
@@ -53,15 +51,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Actions.OnAtaque(damage);
+            Actions.OnAtaque(currentMod, damage);
         }
         else if (Input.GetMouseButtonUp(0))
         {
             Actions.StopAtaque();
         }
     }
-
-
     
     private void OlharParaMouse()
     {
@@ -77,6 +73,16 @@ public class PlayerController : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.red);
 
             characterModel.transform.LookAt(new Vector3(pointToLook.x,characterModel.transform.position.y, pointToLook.z));
+        }
+    }
+
+    private void SwitchMod()
+    {
+        if (Input.GetKeyDown("e"))
+        {
+            currentMod++;
+            if (currentMod > maxModsTEST)
+                currentMod = 0;
         }
     }
 }

@@ -7,6 +7,7 @@ public class ParticleEnabler : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particle;
     private float damage;
+    [SerializeField] private int thisID;
 
     private void OnEnable()
     {
@@ -35,11 +36,14 @@ public class ParticleEnabler : MonoBehaviour
         Actions.OnBossHit(other, damage);
     }
 
-    private void HandleActivation(float damage)
+    private void HandleActivation(int incomingID, float damage)
     {
-        var em = particle.emission;
-        em.enabled = true;
-        this.damage = damage;
+        if (thisID == incomingID)
+        {
+            var em = particle.emission;
+            em.enabled = true;
+            this.damage = damage;
+        }
     }
 
     private void HandleDeactivation()
