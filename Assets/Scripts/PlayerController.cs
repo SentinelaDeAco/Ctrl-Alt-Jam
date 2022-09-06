@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
         //HandleDash();
 
         controller.Move(move * speed * Time.deltaTime);
+
+        if (move != new Vector3(0f,0f,0f))
+            this.gameObject.transform.Find("Mago").GetComponent<Animator>().SetBool("isRunning", true);
+        else
+            this.gameObject.transform.Find("Mago").GetComponent<Animator>().SetBool("isRunning", false);
     }
 
     private void HandleDash()
