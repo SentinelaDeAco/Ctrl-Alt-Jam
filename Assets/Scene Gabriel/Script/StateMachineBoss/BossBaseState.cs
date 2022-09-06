@@ -7,5 +7,4 @@ public abstract class BossBaseState
     public abstract void UpdateState(BossStateManager boss);
 
     public abstract void OnCollisionEnter(BossStateManager boss, Collision collision);
-
 }

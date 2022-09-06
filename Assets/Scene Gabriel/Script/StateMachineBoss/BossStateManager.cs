@@ -6,6 +6,7 @@ public class BossStateManager : MonoBehaviour
 {
 
     public BossBaseState currentState;
+    //Stados 
     public BossChargedShot chargedShotState = new BossChargedShot();
     public BossAreaAttack areaAttackState = new BossAreaAttack();
     public BossArenaObstacleState arenaObstacleState = new BossArenaObstacleState();
@@ -15,6 +16,7 @@ public class BossStateManager : MonoBehaviour
     public BossRestState bossRestState = new BossRestState();
     public BossShotState bossShotState = new BossShotState();
     public BossSpawnState bossSpawnState = new BossSpawnState();
+    public BossFlowerState bossFlowerState = new BossFlowerState();
 
     // Start is called before the first frame update
     void Start()
