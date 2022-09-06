@@ -17,6 +17,6 @@ public class CameraController : MonoBehaviour
             playerController = FindObjectOfType<PlayerController>();
 
         Vector3 playerPosition = playerController.transform.position;
-        transform.position = playerPosition + Vector3.up * 12f + Vector3.back * 4f;
+        transform.position = playerPosition + Vector3.up * 12f + Vector3.back * 6f;
     }
 }

@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: c0635dbe7f34e3549b72d8abd6df7c8f
+guid: f4a12ed3974df69478a49c4cf0136ea9
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -468689564769157971
+    second: Armature |Action
+  - first:
+      74: -3288046703555801558
+    second: baixo|Action.003
   externalObjects: {}
   materials:
     materialImportMode: 2
