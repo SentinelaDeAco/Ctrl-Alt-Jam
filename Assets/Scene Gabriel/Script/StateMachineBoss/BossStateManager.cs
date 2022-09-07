@@ -49,4 +49,6 @@ public class BossStateManager : MonoBehaviour
         currentState = state;
         state.EnterState(this);
     }
+
+    
 }

@@ -451,19 +451,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7440360115999701775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7746210924119755586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba15d6c5d25df54da9d4747a4dd30ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
 --- !u!114 &2155157310763647967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +467,19 @@ MonoBehaviour:
   - m_Rig: {fileID: 5965425517482448621}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &7440360115999701775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746210924119755586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba15d6c5d25df54da9d4747a4dd30ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!114 &8362607615219342602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +526,19 @@ MonoBehaviour:
   - {fileID: 6750001960187264034}
   - {fileID: 7876128032370058458}
   - {fileID: 2638497320373284786}
+--- !u!114 &7207424686294047515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746210924119755586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c999d0a28cc9f35449e7c66108853222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faseBoss: 1
 --- !u!4 &7863331228107263138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 747969231759637169, guid: 73bf4fab1da72e64e81704f486d68c17, type: 3}
