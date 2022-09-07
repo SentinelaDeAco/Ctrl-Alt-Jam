@@ -10,6 +10,7 @@ public class BossDieState : BossBaseState
 
     public override void UpdateState(BossStateManager boss)
     {
+        Debug.Log("Morte");
 
     }
 

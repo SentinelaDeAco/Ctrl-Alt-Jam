@@ -17,18 +17,25 @@ public class BossStateManager : MonoBehaviour
     public BossShotState bossShotState = new BossShotState();
     public BossSpawnState bossSpawnState = new BossSpawnState();
     public BossFlowerState bossFlowerState = new BossFlowerState();
+    public BossChangeFaseState bossChangeFaseState = new BossChangeFaseState();
+
+    public int faseBoss = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentState = bossSpawnState;
+        //Estado Inicial Do Boss
+        currentState = bossFlowerState;
 
+        //Seta o estado quando da start
         currentState.EnterState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(currentState);
+
         currentState.UpdateState(this);
     }
 
