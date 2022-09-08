@@ -20,21 +20,19 @@ public class BossStateManager : MonoBehaviour
     public BossChangeFaseState bossChangeFaseState = new BossChangeFaseState();
 
     public int faseBoss = 1;
+    public bool needSwitch = false; 
 
     // Start is called before the first frame update
     void Start()
     {
         //Estado Inicial Do Boss
-        currentState = bossFlowerState;
-
-        //Seta o estado quando da start
-        currentState.EnterState(this);
+        SwitchState(bossFlowerState);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(currentState);
+        Debug.Log(currentState.GetType());
 
         currentState.UpdateState(this);
     }
@@ -47,8 +45,12 @@ public class BossStateManager : MonoBehaviour
     public void SwitchState(BossBaseState state)
     {
         currentState = state;
-        state.EnterState(this);
+        currentState.EnterState(this);
     }
 
-    
+    public void OnAnimationEnd()
+    {
+        needSwitch = true;
+        SwitchState(bossIdleState);
+    }
 }

@@ -14,9 +14,9 @@ public class BossIdleState : BossBaseState
     public override void UpdateState(BossStateManager boss)
     {
 
-        Debug.Log("Idle"); 
-        Debug.Log(shotCount);
-        Debug.Log("Fase " + boss.faseBoss);
+        //Debug.Log("Idle"); 
+        //Debug.Log(shotCount);
+        //Debug.Log("Fase " + boss.faseBoss);
 
         //------------Fase1--------------//
         if (boss.faseBoss == 1)
@@ -54,16 +54,18 @@ public class BossIdleState : BossBaseState
             //Aumenta em Um o contador de Tiro
             shotCount += 1;
 
-            Debug.Log("MUDANDO DE ESTADO");
+            //Debug.Log("MUDANDO DE ESTADO");
             boss.SwitchState(boss.bossShotState);
+            boss.gameObject.GetComponent<Animator>().SetTrigger("Tiro");
         }
         else if (Input.GetKeyDown(KeyCode.K) && shotCount >= 3)
         {
-            //Aumenta em Um o contador de Tiro
+            //Zera o contador de Tiro
             shotCount = 0;
 
-            Debug.Log("MUDANDO DE ESTADO");
+            //Debug.Log("MUDANDO DE ESTADO");
             boss.SwitchState(boss.bossRestState);
+            boss.gameObject.GetComponent<Animator>().SetTrigger("Tiro");
         }
     }
 
