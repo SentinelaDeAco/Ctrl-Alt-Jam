@@ -8,7 +8,40 @@ ModelImporter:
     second: Armature |Action
   - first:
       74: -3288046703555801558
+    second: RunningLegs
+  - first:
+      74: -3288046703555801558
     second: baixo|Action.003
+  - first:
+      74: 3229193883789663987
+    second: CorridaPerna
+  - first:
+      74: -3494760543614970193
+    second: IdleLegs
+  - first:
+      74: -5830642304109791245
+    second: RunningLegs
+  - first:
+      74: -7156506273953848791
+    second: IdleTop
+  - first:
+      74: -1821031186112681988
+    second: AttackTop
+  - first:
+      74: 4187609332937365924
+    second: AttackLegs
+  - first:
+      74: -3864863278687619508
+    second: DashTop
+  - first:
+      74: -4254643108554956084
+    second: DashLegs
+  - first:
+      74: 6236722014952962343
+    second: DeathTop
+  - first:
+      74: 1246309056257653760
+    second: DeathLegs
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -37,7 +70,65 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature |Action
+      takeName: Armature |Action
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: baixo|Action.003
+      takeName: baixo|Action.003
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

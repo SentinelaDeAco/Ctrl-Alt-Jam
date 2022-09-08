@@ -7,6 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.anyKeyDown) SceneManager.LoadScene("SampleScene");
+        if (Input.anyKeyDown) SceneManager.LoadScene("Boss#1");
     }
 }

@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 52c956c8c50792e4386e90b15578bdd2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 91c78d8739ad7bf4388ec5a6db1300e8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -108,7 +108,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MageTopAnim
+  m_Name: MageLegsAnim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isRunning
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ec56b72ad9fa3b742b876408857b98ab, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0837d5d79060568458b764f5464a50b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

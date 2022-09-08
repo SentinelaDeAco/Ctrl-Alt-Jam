@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    [SerializeField] private Transform targetPlayer;
     [SerializeField] private ParticleSystem rockVFX;
     [SerializeField] private ParticleSystem dustVFX;
-    [SerializeField] private float maxHP = 100;
-    private float currentHP = 100;
+    [SerializeField] private float maxHP = default;
+    [SerializeField] private float rotationSpeed = default;
+    private float currentHP = default;
     private bool isVulnerable = false;
+    private bool isSleeping = true;
+    public bool canLook = false;
     private int phase = 1;
     private int shotCount = 0;
 
@@ -25,14 +29,33 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if (phase == 1 && currentHP < maxHP * 0.7f)
-            SwitchPhases();
+        if (!isSleeping)
+        {
+            LookAtPlayer();
 
-        if (phase == 2 && currentHP < maxHP * 0.3f)
-            SwitchPhases();
+            if (phase == 1 && currentHP < maxHP * 0.7f)
+                SwitchPhases();
 
-        if (phase == 3 && currentHP <= 0)
-            Die();
+            if (phase == 2 && currentHP < maxHP * 0.3f)
+                SwitchPhases();
+
+            if (phase == 3 && currentHP <= 0)
+                Die();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isSleeping)
+        {
+            currentHP = maxHP;
+            if (other is CharacterController)
+                gameObject.GetComponent<Animator>().SetTrigger("Start");
+            isSleeping = false;
+        }
+
+        if (phase == 3)
+            StartCoroutine(AreaAttack(0.0f * Time.deltaTime));
     }
 
     private void OnBossHit(GameObject target, float damage)
@@ -52,7 +75,7 @@ public class Boss : MonoBehaviour
 
     private void PhaseOne()
     {
-        SetRest(false);
+        ResetAnimationBools();
 
         shotCount++;
 
@@ -67,8 +90,7 @@ public class Boss : MonoBehaviour
 
     private void PhaseTwo()
     {
-        SetRest(false);
-        SetCharge(false);
+        ResetAnimationBools();
 
         shotCount++;
 
@@ -89,6 +111,8 @@ public class Boss : MonoBehaviour
 
     private void PhaseThree()
     {
+        ResetAnimationBools();
+
         shotCount++;
 
         if (shotCount < 3)
@@ -98,15 +122,6 @@ public class Boss : MonoBehaviour
             StartCoroutine(StrongAttack(0.0f * Time.deltaTime));
             shotCount = 0;
         }
-        /*else
-        {
-            shotCount = 0;
-
-            int rnd = Random.Range(1, 3);
-
-            if (rnd == 1)
-                StartCoroutine(AreaAttack(0.0f * Time.deltaTime));
-        }*/
     }
 
     private void SetRest(bool isResting)
@@ -133,6 +148,7 @@ public class Boss : MonoBehaviour
 
     private void SwitchPhases()
     {
+        shotCount = 0;
         phase++;
         isVulnerable = false;
         gameObject.GetComponent<Animator>().SetTrigger("Roar");
@@ -144,12 +160,52 @@ public class Boss : MonoBehaviour
         gameObject.GetComponent<Animator>().SetTrigger("Death");
     }
 
+    private void PlayGroundFX()
+    {
+        var rock = rockVFX.emission;
+        rock.enabled = true;
+        var dust = dustVFX.emission;
+        dust.enabled = true;
+    }
+
     private void EndGroundFX()
     {
         var rock = rockVFX.emission;
         rock.enabled = false;
         var dust = dustVFX.emission;
         dust.enabled = false;
+    }
+
+    private void LookAtPlayer()
+    {
+        if (canLook)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(targetPlayer.position, Vector3.up);
+            this.gameObject.transform.rotation = Quaternion.RotateTowards(this.gameObject.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    private void CanLookTrue()
+    {
+        canLook = true;
+    }
+
+    private void CanLookFalse()
+    {
+        canLook = false;
+    }
+
+    private void ResetAnimationBools()
+    {
+        if (gameObject.GetComponent<Animator>().GetBool("Rest"))
+            SetRest(false);
+        if (gameObject.GetComponent<Animator>().GetBool("Charge"))
+            SetCharge(false);
+    }
+
+    private void SpawnShot()
+    {
+
     }
 
     IEnumerator Attack(float delayTime)

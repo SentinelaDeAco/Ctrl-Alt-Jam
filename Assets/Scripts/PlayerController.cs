@@ -6,12 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterController controller = default;
     [SerializeField] private float speed = default;
+    [SerializeField] private float rotationSpeed = default;
     private int counter = 0;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject characterModel;
+    [SerializeField] private GameObject characterLegs;
     [SerializeField] private float damage = 0.1f;
     [SerializeField] private int maxModsTEST = 1;
     private int currentMod = 0; //0 = Normal; 1 = Flamethrower; 2 = Laser; 3 = Rune
+    [SerializeField] private GameObject baseWeapon = default;
+    [SerializeField] private GameObject mod1 = default;
+    //[SerializeField] private GameObject mod2 = default;
+    //[SerializeField] private GameObject mod3 = default;
 
 
 
@@ -33,10 +39,15 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (move != new Vector3(0f,0f,0f))
-            this.gameObject.transform.Find("Mago").GetComponent<Animator>().SetBool("isRunning", true);
+        if (move != new Vector3(0f, 0f, 0f))
+            SwitchAnimatorBool("isRunning", true);
         else
-            this.gameObject.transform.Find("Mago").GetComponent<Animator>().SetBool("isRunning", false);
+            SwitchAnimatorBool("isRunning", false);
+
+        if (move != Vector3.zero)
+        {
+            RotateLegs(x, z);
+        }
     }
 
     private void HandleDash()
@@ -88,6 +99,46 @@ public class PlayerController : MonoBehaviour
             currentMod++;
             if (currentMod > maxModsTEST)
                 currentMod = 0;
+
+            DeactivateWeapons();
+
+            switch (currentMod)
+            {
+                case 0:
+                    baseWeapon.SetActive(true);
+                    break;
+                case 1:
+                    mod1.SetActive(true);
+                    break;
+                /*case 2:
+                    mod2.SetActive(true);
+                    break;
+                case 3:
+                    mod3.SetActive(true);
+                    break;*/
+                default:
+                    break;
+            }
         }
+    }
+
+    private void SwitchAnimatorBool(string trigger, bool state)
+    {
+        this.gameObject.transform.Find("MagoTop").GetComponent<Animator>().SetBool(trigger, state);
+        this.gameObject.transform.Find("MagoLegs").GetComponent<Animator>().SetBool(trigger, state);
+    }
+
+    private void RotateLegs(float x, float z)
+    {
+        Quaternion toRotation = Quaternion.LookRotation(new Vector3(x, characterLegs.transform.position.y, z), Vector3.up);
+        characterLegs.transform.rotation = Quaternion.RotateTowards(characterLegs.transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    private void DeactivateWeapons()
+    {
+        baseWeapon.SetActive(false);
+        mod1.SetActive(false);
+        //mod2.SetActive(false);
+        //mod3.SetActive(false);
     }
 }
