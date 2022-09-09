@@ -13,12 +13,14 @@ public class ParticleEnabler : MonoBehaviour
     {
         Actions.OnAtaque += HandleActivation;
         Actions.StopAtaque += HandleDeactivation;
+        Actions.OnPlayerDeath += HandleDeactivation;
     }
 
     private void OnDisable()
     {
         Actions.OnAtaque -= HandleActivation;
         Actions.StopAtaque -= HandleDeactivation;
+        Actions.OnPlayerDeath -= HandleDeactivation;
     }
 
     private void Start()

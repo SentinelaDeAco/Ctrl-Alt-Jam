@@ -12,21 +12,44 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject characterModel;
     [SerializeField] private GameObject characterLegs;
     [SerializeField] private float damage = 0.1f;
+    [SerializeField] private float maxHP = 10f;
+    private float currentHP = 10f;
     [SerializeField] private int maxModsTEST = 1;
     private int currentMod = 0; //0 = Normal; 1 = Flamethrower; 2 = Laser; 3 = Rune
     [SerializeField] private GameObject baseWeapon = default;
     [SerializeField] private GameObject mod1 = default;
     //[SerializeField] private GameObject mod2 = default;
     //[SerializeField] private GameObject mod3 = default;
+    private bool isAlive = true;
 
+    void Start()
+    {
+        currentHP = maxHP;
+        isAlive = true;
+    }
 
+    private void OnEnable()
+    {
+        Actions.OnPlayerHit += HandleHit;
+        Actions.OnPlayerSlam += HandleHit;
+    }
+
+    private void OnDisable()
+    {
+        Actions.OnPlayerHit -= HandleHit;
+        Actions.OnPlayerSlam -= HandleHit;
+    }
 
     void Update()
     {
-        HandleMovement();
-        HandleAttack();
-        OlharParaMouse();
-        SwitchMod();
+        if (isAlive)
+        {
+            HandleMovement();
+            HandleAttack();
+            HandleDeath();
+            OlharParaMouse();
+            SwitchMod();
+        }
     }
 
     private void HandleMovement()
@@ -74,7 +97,31 @@ public class PlayerController : MonoBehaviour
             Actions.StopAtaque();
         }
     }
-    
+
+    private void HandleHit(float damage)
+    {
+        if (isAlive)
+        {
+            currentHP -= damage;
+            if (currentHP < 0)
+                currentHP = 0;
+            Debug.Log(currentHP);
+        }
+    }
+
+    private void HandleDeath()
+    {
+        if (currentHP <= 0)
+        {
+            isAlive = false;
+
+            Actions.OnPlayerDeath();
+
+            this.gameObject.transform.Find("MagoTop").GetComponent<Animator>().SetTrigger("Death");
+            this.gameObject.transform.Find("MagoLegs").GetComponent<Animator>().SetTrigger("Death");
+        }
+    }
+
     private void OlharParaMouse()
     {
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);

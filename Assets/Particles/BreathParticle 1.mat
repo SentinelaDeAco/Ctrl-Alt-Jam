@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-582399340636770415
+--- !u!114 &-2711142043937195011
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flame
-  m_Shader: {fileID: -6465566751694194690, guid: 44c9a70f50dfa954baee72a55b33024b, type: 3}
+  m_Name: BreathParticle 1
+  m_Shader: {fileID: -6465566751694194690, guid: 51f21453f2c6c86428d786e430803672, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Textura:
-        m_Texture: {fileID: 2800000, guid: 03018b0b50393264cabb3017a76914a7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4b932b19f794c9c45b5bab8354d96747, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -125,7 +125,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Cor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 0}
+    - _Cor: {r: 0.023406863, g: 0.023406863, b: 0.023406863, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

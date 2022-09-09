@@ -6,8 +6,11 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private Transform targetPlayer;
+    [SerializeField] private Transform shotTranform;
     [SerializeField] private ParticleSystem rockVFX;
     [SerializeField] private ParticleSystem dustVFX;
+    [SerializeField] private GameObject shotPrefab;
+    [SerializeField] private GameObject slamCollider;
     [SerializeField] private float maxHP = default;
     [SerializeField] private float rotationSpeed = default;
     private float currentHP = default;
@@ -152,6 +155,9 @@ public class Boss : MonoBehaviour
         phase++;
         isVulnerable = false;
         gameObject.GetComponent<Animator>().SetTrigger("Roar");
+
+        if (phase == 3)
+            slamCollider.SetActive(true);
     }
 
     private void Die()
@@ -205,7 +211,17 @@ public class Boss : MonoBehaviour
 
     private void SpawnShot()
     {
+        Instantiate(shotPrefab, shotTranform.position, this.gameObject.transform.rotation);
+    }
 
+    private void ActivateBreath()
+    {
+        Actions.ActivateBreath();
+    }
+
+    private void DeactivateBreath()
+    {
+        Actions.DeactivateBreath();
     }
 
     IEnumerator Attack(float delayTime)
