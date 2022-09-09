@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Textura:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: b73463421063d854d9790e921a733966, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -112,15 +112,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _intencidade_Fresnel: 0.716
+    - _intencidade_Fresnel: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Cor_Base: {r: 0.4245283, g: 0, b: 0.38196722, a: 0}
-    - _Cor_Fresnel: {r: 0.15107274, g: 1, b: 0, a: 0}
+    - _Cor_Base: {r: 1, g: 1, b: 1, a: 0}
+    - _Cor_Fresnel: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tile: {r: 15, g: 15, b: 0, a: 0}
+    - _Tile: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3873663450379654147
 MonoBehaviour:
