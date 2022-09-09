@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6635635098766117365}
   - component: {fileID: 6635635098766117360}
   - component: {fileID: 7326689465322029037}
+  - component: {fileID: -7276934337524600829}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -129,3 +130,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 800
   damage: 1
+--- !u!114 &-7276934337524600829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635635098766117363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -701404217
+      Data2: 1091370370
+      Data3: -1583656533
+      Data4: -1885595189
+    Path: event:/Effects/Shoot_Planta
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
