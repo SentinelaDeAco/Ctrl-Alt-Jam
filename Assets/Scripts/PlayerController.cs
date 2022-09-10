@@ -20,24 +20,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject mod1 = default;
     //[SerializeField] private GameObject mod2 = default;
     //[SerializeField] private GameObject mod3 = default;
+    [SerializeField] private HealthBar healthBar = default;
     private bool isAlive = true;
 
     void Start()
     {
         currentHP = maxHP;
+        healthBar.SetMaxHealth(maxHP);
         isAlive = true;
     }
 
     private void OnEnable()
     {
         Actions.OnPlayerHit += HandleHit;
-        Actions.OnPlayerSlam += HandleHit;
     }
 
     private void OnDisable()
     {
         Actions.OnPlayerHit -= HandleHit;
-        Actions.OnPlayerSlam -= HandleHit;
     }
 
     void Update()
@@ -105,7 +105,8 @@ public class PlayerController : MonoBehaviour
             currentHP -= damage;
             if (currentHP < 0)
                 currentHP = 0;
-            Debug.Log(currentHP);
+
+            healthBar.SetHealth(currentHP);
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    [SerializeField] private HealthBar healthBar = default;
     [SerializeField] private Transform targetPlayer;
     [SerializeField] private Transform shotTranform;
     [SerializeField] private ParticleSystem rockVFX;
@@ -16,7 +17,8 @@ public class Boss : MonoBehaviour
     private float currentHP = default;
     private bool isVulnerable = false;
     private bool isSleeping = true;
-    public bool canLook = false;
+    private bool canLook = false;
+    private bool willBreath = false;
     private int phase = 1;
     private int shotCount = 0;
 
@@ -28,6 +30,12 @@ public class Boss : MonoBehaviour
     private void OnDisable()
     {
         Actions.OnBossHit -= OnBossHit;
+    }
+
+    private void Start()
+    {
+        currentHP = maxHP;
+        healthBar.SetMaxHealth(maxHP);
     }
 
     void Update()
@@ -49,16 +57,19 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isSleeping)
+        if (other.gameObject.tag == "Player")
         {
-            currentHP = maxHP;
-            if (other is CharacterController)
-                gameObject.GetComponent<Animator>().SetTrigger("Start");
-            isSleeping = false;
-        }
+            if (isSleeping)
+            {
+                currentHP = maxHP;
+                if (other is CharacterController)
+                    gameObject.GetComponent<Animator>().SetTrigger("Start");
+                isSleeping = false;
+            }
 
-        if (phase == 3)
-            StartCoroutine(AreaAttack(0.0f * Time.deltaTime));
+            if (phase == 3)
+                StartCoroutine(AreaAttack(0.0f * Time.deltaTime));
+        }
     }
 
     private void OnBossHit(GameObject target, float damage)
@@ -67,7 +78,8 @@ public class Boss : MonoBehaviour
         {
             if (target == this.gameObject)
                 currentHP -= damage;
-            Debug.Log(currentHP);
+
+            healthBar.SetHealth(currentHP);
         }
     }
 
@@ -145,7 +157,7 @@ public class Boss : MonoBehaviour
         if (phase == 2)
             PhaseTwo();
 
-        if (phase == 3)
+        if (phase == 3 && !willBreath)
             PhaseThree();
     }
 
@@ -224,6 +236,12 @@ public class Boss : MonoBehaviour
         Actions.DeactivateBreath();
     }
 
+    private void BoolAreaFalse()
+    {
+        willBreath = false;
+        gameObject.GetComponent<Animator>().SetBool("Area", false);
+    }
+
     IEnumerator Attack(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -242,6 +260,7 @@ public class Boss : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
 
-        gameObject.GetComponent<Animator>().SetTrigger("Area");
+        willBreath = true;
+        gameObject.GetComponent<Animator>().SetBool("Area", true);
     }
 }
