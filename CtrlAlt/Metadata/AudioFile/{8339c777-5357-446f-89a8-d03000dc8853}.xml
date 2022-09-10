@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8339c777-5357-446f-89a8-d03000dc8853}">
+		<property name="assetPath">
+			<value>fire_vomit2.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.39183673469387753</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02a47843-5a37-4ba0-8efe-f2a09a2f8c86}</destination>
+		</relationship>
+	</object>
+</objects>

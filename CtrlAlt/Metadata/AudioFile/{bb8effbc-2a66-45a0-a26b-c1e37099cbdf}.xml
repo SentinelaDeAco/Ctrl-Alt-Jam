@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bb8effbc-2a66-45a0-a26b-c1e37099cbdf}">
+		<property name="assetPath">
+			<value>Lança_Chamas_fim_FINAL.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0710204081632653</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02a47843-5a37-4ba0-8efe-f2a09a2f8c86}</destination>
+		</relationship>
+	</object>
+</objects>
