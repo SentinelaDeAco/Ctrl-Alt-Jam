@@ -21,7 +21,11 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private GameObject mod2 = default;
     //[SerializeField] private GameObject mod3 = default;
     [SerializeField] private HealthBar healthBar = default;
+    [SerializeField] private GameObject lava = default;
+    [SerializeField] private Transform lavaPos = default;
     private bool isAlive = true;
+    private bool isJamming = false;
+    private bool jamBlock = false;
 
     void Start()
     {
@@ -49,6 +53,9 @@ public class PlayerController : MonoBehaviour
             HandleDeath();
             OlharParaMouse();
             SwitchMod();
+
+            if (currentMod != 0)
+                TryRandomNumber();
         }
     }
 
@@ -88,13 +95,33 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isJamming)
         {
-            Actions.OnAtaque(currentMod, damage);
+            if (Input.GetMouseButtonDown(0))
+                Actions.OnAtaque(currentMod, damage);
+
+            else if (Input.GetMouseButtonUp(0))
+                Actions.StopAtaque();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else
+            HandleJamming();
+    }
+
+    private void HandleJamming()
+    {
+        if (currentMod == 1)
         {
             Actions.StopAtaque();
+
+            if (Input.GetMouseButton(0) && !jamBlock)
+            {
+                jamBlock = true;
+
+                Actions.OnWeaponJam();
+
+                StartCoroutine(DelayLava(80.0f * Time.deltaTime));
+                StartCoroutine(DelayUnjamming(300.0f * Time.deltaTime));
+            }
         }
     }
 
@@ -170,6 +197,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void TryRandomNumber()
+    {
+        if (!isJamming)
+        {
+            int num = Random.Range(1, 3001);
+
+            if (num == 1) { isJamming = true; Debug.Log(isJamming); }
+        }
+    }
+
     private void SwitchAnimatorBool(string trigger, bool state)
     {
         this.gameObject.transform.Find("MagoTop").GetComponent<Animator>().SetBool(trigger, state);
@@ -188,5 +225,23 @@ public class PlayerController : MonoBehaviour
         mod1.SetActive(false);
         //mod2.SetActive(false);
         //mod3.SetActive(false);
+    }
+
+    IEnumerator DelayLava(float delayTime)
+    {
+        Vector3 fixedPos = lavaPos.position;
+        Quaternion fixedRot = lavaPos.rotation;
+
+        yield return new WaitForSeconds(delayTime);
+
+        Instantiate(lava, fixedPos, fixedRot);
+    }
+
+    IEnumerator DelayUnjamming(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        isJamming = false;
+        jamBlock = false;
     }
 }

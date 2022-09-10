@@ -6,6 +6,7 @@ using UnityEngine;
 public static class Actions
 {
     public static Action<int, float> OnAtaque;
+    public static Action OnWeaponJam;
     public static Action StopAtaque;
     public static Action<GameObject, float> OnBossHit;
     public static Action<float> OnPlayerHit;

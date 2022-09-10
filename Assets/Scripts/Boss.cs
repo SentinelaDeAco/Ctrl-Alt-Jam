@@ -121,7 +121,7 @@ public class Boss : MonoBehaviour
                 SetCharge(true);
         }
 
-        StartCoroutine(Attack(100.0f * Time.deltaTime));
+        StartCoroutine(Attack(50.0f * Time.deltaTime));
     }
 
     private void PhaseThree()
