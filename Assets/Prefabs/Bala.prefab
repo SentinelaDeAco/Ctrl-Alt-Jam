@@ -145,11 +145,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -701404217
-      Data2: 1091370370
-      Data3: -1583656533
-      Data4: -1885595189
-    Path: event:/Effects/Shoot_Planta
+      Data1: -966340404
+      Data2: 1119113501
+      Data3: 830250166
+      Data4: -2145261359
+    Path: event:/Effects/FiteVomit
   Event: 
   PlayEvent: 11
   StopEvent: 12

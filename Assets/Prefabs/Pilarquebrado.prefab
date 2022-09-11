@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4466026033097203898}
   - component: {fileID: 744598717258592031}
   - component: {fileID: 3292606176784030677}
+  - component: {fileID: 2876352115313612668}
   m_Layer: 0
   m_Name: Pilarquebrado
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2876352115313612668
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941023161198819840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -905534829453823272, guid: b740fc2e8a491ce47be0f813bc84bf4c, type: 3}

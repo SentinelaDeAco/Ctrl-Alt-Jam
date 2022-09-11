@@ -19649,8 +19649,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.7916667
-    functionName: OnFightBegin
+  - time: 0.41666666
+    functionName: TriggerSFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: StopSFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -19658,6 +19665,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2.7916667
     functionName: CanLookTrue
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.7916667
+    functionName: OnFightBegin
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

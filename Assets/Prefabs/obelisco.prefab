@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9108709536323865278}
   - component: {fileID: 5316350399719081243}
   - component: {fileID: 7936345077357736401}
+  - component: {fileID: -3613669442430250285}
   m_Layer: 0
   m_Name: obelisco
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3613669442430250285
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440717380740206596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7388435854608527984, guid: 25b6ad542255f9544b61327c350faa9e, type: 3}

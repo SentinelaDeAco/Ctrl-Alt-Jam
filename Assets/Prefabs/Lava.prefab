@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2597426416721317894}
   - component: {fileID: 4795468441783162915}
   - component: {fileID: 6295354529815274202}
+  - component: {fileID: -4956348581698247297}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -137,3 +138,33 @@ CapsuleCollider:
   m_Height: 0.025
   m_Direction: 0
   m_Center: {x: -0.004, y: 0, z: 0}
+--- !u!114 &-4956348581698247297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493410008930706260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 677537380
+      Data2: 1132479604
+      Data3: -1196611925
+      Data4: 2115011590
+    Path: event:/Effects/LavaSound
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

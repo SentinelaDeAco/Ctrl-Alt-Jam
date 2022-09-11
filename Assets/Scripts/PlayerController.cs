@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private bool isAlive = true;
     private bool isJamming = false;
     private bool jamBlock = false;
+    private bool canUgh = true;
+    [SerializeField] private GameObject lavaParticle;
+    [SerializeField] private GameObject[] sfx;
 
     void Start()
     {
@@ -117,7 +121,7 @@ public class PlayerController : MonoBehaviour
             {
                 jamBlock = true;
 
-                Actions.OnWeaponJam();
+                lavaParticle.SetActive(true);
 
                 StartCoroutine(DelayLava(80.0f * Time.deltaTime));
                 StartCoroutine(DelayUnjamming(300.0f * Time.deltaTime));
@@ -133,6 +137,12 @@ public class PlayerController : MonoBehaviour
             if (currentHP < 0)
                 currentHP = 0;
 
+            if (canUgh)
+            {
+                canUgh = false;
+                sfx[0].SetActive(true);
+                StartCoroutine(HurtCooldown(50.0f * Time.deltaTime));
+            }
             healthBar.SetHealth(currentHP);
         }
     }
@@ -203,7 +213,13 @@ public class PlayerController : MonoBehaviour
         {
             int num = Random.Range(1, 3001);
 
-            if (num == 1) { isJamming = true; Debug.Log(isJamming); }
+            if (num == 1) 
+            { 
+                isJamming = true;
+                sfx[1].SetActive(true);
+                sfx[1].SetActive(false);
+                Debug.Log(isJamming); 
+            }
         }
     }
 
@@ -243,5 +259,15 @@ public class PlayerController : MonoBehaviour
 
         isJamming = false;
         jamBlock = false;
+
+        lavaParticle.SetActive(false);
+    }
+
+    IEnumerator HurtCooldown(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        sfx[0].SetActive(false);
+        canUgh = true;
     }
 }
