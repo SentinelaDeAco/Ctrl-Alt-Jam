@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
+        move = move.normalized;
 
         //HandleDash();
 
@@ -218,7 +219,6 @@ public class PlayerController : MonoBehaviour
                 isJamming = true;
                 sfx[1].SetActive(true);
                 sfx[1].SetActive(false);
-                Debug.Log(isJamming); 
             }
         }
     }

@@ -15,4 +15,13 @@ public class CallSFX : MonoBehaviour
     {
         sfx[id].SetActive(false);
     }
+
+    private IEnumerator SFX(int id)
+    {
+        sfx[id].SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        sfx[id].SetActive(false);
+    }
 }

@@ -11,11 +11,6 @@ public class Lava : MonoBehaviour
     private bool isColliding = false;
     private GameObject target = default;
 
-    /*private void OnTriggerStay(Collider other)
-    {
-        
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
         target = other.gameObject;

@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour
     private bool willBreath = false;
     private int phase = 1;
     private int shotCount = 0;
+    private Coroutine flashRoutine;
 
     private void OnEnable ()
     {
@@ -76,11 +77,21 @@ public class Boss : MonoBehaviour
     {
         if (isVulnerable)
         {
+            Flash();
+
             if (target == this.gameObject)
                 currentHP -= damage;
 
             healthBar.SetHealth(currentHP);
         }
+    }
+
+    private void Flash()
+    {
+        if (flashRoutine != null)
+            StopCoroutine(flashRoutine);
+
+        flashRoutine = StartCoroutine(DamageFlash(0.125f));
     }
 
     private void OnFightBegin()
@@ -167,14 +178,22 @@ public class Boss : MonoBehaviour
         phase++;
         isVulnerable = false;
         gameObject.GetComponent<Animator>().SetTrigger("Roar");
+    }
 
-        if (phase == 3)
-            slamCollider.SetActive(true);
+    private void BeginSlam()
+    {
+        slamCollider.SetActive(true);
+    }
+
+    private void EndSlam()
+    {
+        slamCollider.SetActive(false);
     }
 
     private void Die()
     {
         phase++;
+        isVulnerable = false;
         gameObject.GetComponent<Animator>().SetTrigger("Death");
     }
 
@@ -242,25 +261,36 @@ public class Boss : MonoBehaviour
         gameObject.GetComponent<Animator>().SetBool("Area", false);
     }
 
-    IEnumerator Attack(float delayTime)
+    private IEnumerator Attack(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
         gameObject.GetComponent<Animator>().SetTrigger("Attack");
     }
 
-    IEnumerator StrongAttack(float delayTime)
+    private IEnumerator StrongAttack(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
         gameObject.GetComponent<Animator>().SetTrigger("Strong");
     }
 
-    IEnumerator AreaAttack(float delayTime)
+    private IEnumerator AreaAttack(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
         willBreath = true;
         gameObject.GetComponent<Animator>().SetBool("Area", true);
+    }
+
+    private IEnumerator DamageFlash(float delayTime)
+    {
+        transform.Find("boss1").GetComponent<Renderer>().material.SetFloat("_intencidade_Fresnel", 2f);
+
+        yield return new WaitForSeconds(delayTime);
+        
+        transform.Find("boss1").GetComponent<Renderer>().material.SetFloat("_intencidade_Fresnel", 0f);
+
+        flashRoutine = null;
     }
 }
