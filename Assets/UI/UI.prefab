@@ -267,8 +267,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2507298816131017224}
   - {fileID: 2507298816496735170}
+  - {fileID: 2507298816131017224}
   - {fileID: 5397289938796996163}
   m_Father: {fileID: 2275805664192549108}
   m_RootOrder: 0
@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852484797301433854, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6852484797301433854, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
       propertyPath: m_AnchorMax.x
@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6852484796865063864, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6852484797301433854, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -490,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852484797301433854, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6852484797301433854, guid: 6c6420a908edef549a39098a7d28d887, type: 3}
       propertyPath: m_AnchorMax.x
