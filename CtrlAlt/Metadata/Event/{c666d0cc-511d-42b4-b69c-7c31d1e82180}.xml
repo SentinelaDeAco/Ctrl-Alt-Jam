@@ -107,6 +107,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{696bdbf8-341e-4fb4-8d70-6634d4fa3c9d}">
+		<property name="volume">
+			<value>3.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -144,6 +147,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{bfc17d4d-f75c-4e55-bdf0-308d366d6c3a}">
+		<property name="startOffset">
+			<value>25</value>
+		</property>
 		<property name="volume">
 			<value>9</value>
 		</property>
@@ -156,7 +162,7 @@
 	</object>
 	<object class="SingleSound" id="{5e3b351c-e0dc-472e-aff3-55682d848433}">
 		<property name="startOffset">
-			<value>19</value>
+			<value>25</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{4d76981f-3abc-49df-98c9-5f7fdbc0f312}</destination>
@@ -185,7 +191,7 @@
 	</object>
 	<object class="AutomationPoint" id="{dd3c5614-73b2-4a82-baaa-0e4b4fdb7941}">
 		<property name="position">
-			<value>0.089999999999999997</value>
+			<value>0.089999999999999969</value>
 		</property>
 		<property name="value">
 			<value>1</value>
