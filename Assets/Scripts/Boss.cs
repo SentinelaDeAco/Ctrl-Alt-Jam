@@ -195,6 +195,8 @@ public class Boss : MonoBehaviour
         phase++;
         isVulnerable = false;
         gameObject.GetComponent<Animator>().SetTrigger("Death");
+        Actions.DeactivateBreath();
+        Actions.OnBossKilled();
     }
 
     private void PlayGroundFX()

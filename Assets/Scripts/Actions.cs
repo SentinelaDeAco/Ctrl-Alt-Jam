@@ -11,6 +11,7 @@ public static class Actions
     public static Action<GameObject, float> OnBossHit;
     public static Action<float> OnPlayerHit;
     public static Action OnPlayerDeath;
+    public static Action OnBossKilled;
     public static Action ActivateBreath;
     public static Action DeactivateBreath;
 }

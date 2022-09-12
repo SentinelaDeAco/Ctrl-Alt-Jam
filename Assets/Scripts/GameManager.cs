@@ -2,32 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //[SerializeField] private int modID;
-
     private void OnEnable()
     {
-        //Actions.OnModSwitch += HandleSwitchMods;
+        Actions.OnPlayerDeath += OnPlayerDeath;
+        Actions.OnBossKilled += OnBossKilled;
     }
     private void OnDisable()
     {
-        //Actions.OnModSwitch -= HandleSwitchMods;
+        Actions.OnPlayerDeath -= OnPlayerDeath;
+        Actions.OnBossKilled -= OnBossKilled;
     }
 
-    void Start()
+    private void OnPlayerDeath()
     {
-
+        StartCoroutine(MoveToGameOverScene());
     }
 
-    void Update()
+    private void OnBossKilled()
     {
-        
+        StartCoroutine(MoveToEndingScene());
     }
 
-    private void HandleSwitchMods(int newID)
+    private IEnumerator MoveToGameOverScene()
     {
-        
+        yield return new WaitForSeconds(200.0f);
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    private IEnumerator MoveToEndingScene()
+    {
+        yield return new WaitForSeconds(200.0f);
+
+        SceneManager.LoadScene("TheEnd");
     }
 }
